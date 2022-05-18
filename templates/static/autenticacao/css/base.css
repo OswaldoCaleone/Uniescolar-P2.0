@@ -17,7 +17,7 @@
   }
 
   .bg{
-    background-image: url("../img/textura.jpg");
+    background-image: url(../img/textura.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -30,7 +30,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(53, 91, 105, 0.979);
+    background-color: white;
     width: 100%;
   }
   
@@ -42,7 +42,7 @@
     width: 30rem;
     padding: 0.4rem;
     border-radius: 40px;
-    border: 1px black solid;
+    border: 1px blue;
   }
 
   img {
@@ -74,11 +74,11 @@
   }
 
   nav ul li a:hover {
-    color: #0a7906;
+    color: #1f88eb;
   }
 
   section#banner {
-    background-color: #c3ffff;
+    background-color: #1e33ec;
     padding: 70px;
     display: flex;
     justify-content: space-around;
@@ -102,7 +102,7 @@
 
   section#cadastro div#card {
     position: relative;
-    background-color: #fff;
+    background-color: white;
     padding: 30px;
     border-radius: 2%;
     border: 1px solid #001052;
@@ -148,7 +148,7 @@
   section#cadastro div.label-float input:valid + label {
     font-size: 13px;
     margin-top: 0;
-    color: #4c6ceb;
+    color: #4c69eb;
   }
   
   section#cadastro div.justify-center {
@@ -165,7 +165,7 @@
     border-color: #0130ec;
     border-style: outset;
     border: 2px solid;
-    color: #0130ec;
+    color: #0167ec;
     padding: 0.8rem;
     font-size: 12pt;
     margin-top: 2rem;
@@ -176,7 +176,7 @@
   }
   
   .btn:hover {
-    background-color: #0130ec;
+    background-color: #0140ec;
     color: #fff;
   }
 
@@ -186,7 +186,7 @@
   
   section#cadastro h4 {
     text-align: center;
-    color: #0130ec;
+    color: yellow;
     font-size: 2rem;
     text-shadow: 1px 1px 2px #010500;
     margin-bottom: 2rem;

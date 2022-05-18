@@ -26,21 +26,21 @@
 
 .fundo{
     
-    background-color: #222;
-    color: white;
+    background-color: white;
+    color: rgb(60, 143, 221);
 
 }
 
 .box{
     
-    background-color: #444;
+    background-color: yellow;
     width: 500px;
     padding: 40px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    box-shadow: 0 0px 20px 0 rgba( 255, 207, 0, 0.3 );
+    box-shadow: 0 0px 20px 0 rgba(31, 52, 241, 0.3);
 
 }
 
@@ -59,7 +59,7 @@
 
 .font-degrade{
     
-    background-image: linear-gradient(90deg, rgba(255,207,0,1) 0%, rgba(231,71,220,1) 100%);
+    background-image: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -79,7 +79,7 @@
 .borda-bottom-degrade{
 
     border-bottom: 1px solid transparent;
-    border-image: linear-gradient(90deg,rgba(231,71,220,1) 0%,rgba(255,207,0,1) 100%);
+    border-image: linear-gradient(90deg,rgb(0, 0, 0) 0%,rgb(0, 0, 0) 100%);
     border-image-slice: 1;
 
 }
