@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block 'head' %}
-    <link rel="stylesheet" href="{% static 'autenticacao/css/cadastro.css' %}">
+    <link rel="stylesheet" href="{% static 'autenticacao/css/conta.css' %}">
 {% endblock %}
 
 {% block 'body' %}
 <div class="box">
-    <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
+    <form action="{% url 'conta' %}" method="POST">{% csrf_token %}
         {% if messages %}
             {% for message in messages %}
                 <div class="alert {{message.tags}}">
@@ -19,16 +19,16 @@
             <h1 class="titulo font-degrade borda-bottom-degrade">UNIESCOLAR</h1>
             <br>
             <span class="span-descricao">Nome de usuário:</span>
-            <input type="text" class="form-control input-cadastro" name="username">
+            <input type="text" class="form-control input-conta" name="username">
             <br>
             <span class="span-descricao">Email:</span>
-            <input type="text" class="form-control input-cadastro" name="email">
+            <input type="text" class="form-control input-conta" name="email">
             <br>
             <span class="span-descricao">Senha:</span>
-            <input type="password" class="form-control input-cadastro" name="password">
+            <input type="password" class="form-control input-conta" name="password">
             <br>
             <span class="span-descricao">Confirmar senha:</span>
-            <input type="password" class="form-control input-cadastro" name="confirm-password">
+            <input type="password" class="form-control input-conta" name="confirm-password">
             <br>
             <input type="submit" value="CADASTRAR" class="btn btn-success btn-lg">
             <a href="{% url 'logar' %}" class="btn btn-primary btn-lg">LOGAR</a>

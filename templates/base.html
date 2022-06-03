@@ -1,6 +1,36 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		<header id ="header" class ="mb-3">
+            <nav class ="navbar navbar-light navbar-expand-sm bg-warning">
+                <!--Logotipo-->
+                <a href =" / " class ="navbar-brand" style ="font-size: 2em;">Uniescolar</a>
+
+                <!--Botão-->
+                <button class ="navbar-toggler" data-toggle ="recolher" data-target ="#navegacao"><span class ="navbar-toggler-icon"></span>
+				</button>
+
+                <!--Navegação-->
+                <div class ="recolher navbar-collapse" id ="navegacao">
+                    <ul class ="navbar-nav ml-auto">
+                        <li  class ="nav-item">
+                            <a href ="/cadastro" class ="nav-link {%if active == 'cadastro'%}active{%endif%}">Transportador</a>
+                        </li>
+                        <li class =" nav-item ">
+                            <a class ="nav-link{%if active == 'formulario'%}active{%endif%}" href ="/formulario">Formulário</a>
+                        </li>
+                        <li class ="nav-item">
+                            <a class ="nav-link{%if active == 'escola'%}active{%endif%}" href ="escola">Escola</a>
+                        </li>
+                        <li class ="nav-item">
+                            <a href ="/localizacao" class ="nav-link{%if active == 'localizacao'%}active{%endif%}">Localizacão</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+            </nav>
+		</header>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

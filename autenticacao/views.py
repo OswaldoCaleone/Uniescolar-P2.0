@@ -7,9 +7,9 @@ from django.contrib.auth import get_user_model
 from django.contrib import auth, messages
 from django.contrib.messages import constants
 
-def cadastro(request):
+def conta(request):
     if request.method == "GET":
-        return render(request, 'cadastro.html')
+        return render(request, 'conta.html')
     elif request.method == "POST": 
         username = request.POST.get('username')
         email = request.POST.get('email')
@@ -18,17 +18,17 @@ def cadastro(request):
         
         if not senha == confirmar_senha:
             messages.add_message(request, constants.ERROR, 'As senhas não coincidem')
-            return redirect('/auth/cadastro')
+            return redirect('/auth/conta')
 
         if len(username.strip()) == 0 or len(senha.strip()) == 0:
             messages.add_message(request, constants.ERROR, 'Preencha todos os campos')
-            return redirect('/auth/cadastro')
+            return redirect('/auth/conta')
 
         user = User.objects.filter(username = username)
 
         if user.exists():
-            messages.add_message(request, constants.ERROR, 'Já existe um usário com esse email')
-            return redirect('/auth/cadastro')
+            messages.add_message(request, constants.ERROR, 'Já existe um usário com esse nome')
+            return redirect('/auth/conta')
         
         try:
             user = User.objects.create_user(username=username, password=senha)
@@ -39,7 +39,7 @@ def cadastro(request):
 
         except:
             messages.add_message(request, constants.ERROR, 'Erro interno do sistema')
-            return redirect('/auth/cadastro')
+            return redirect('/auth/conta')
 
         return HttpResponse(Recebido)    
 
@@ -49,7 +49,7 @@ def cadastro(request):
 def logar(request):
     if request.method == 'GET':
         if request.user.is_authenticated:
-            return redirect('/plataforma')
+            return redirect('https:/uniescolar.herokuapp.com')
         return render(request, 'logar.html')
         
     elif request.method == 'POST':
@@ -59,7 +59,7 @@ def logar(request):
         usuario = auth.authenticate(username=username, password=senha)
 
         if not usuario:
-            messages.add_message(request, constants.ERROR, 'Email ou senha inválidos')
+            messages.add_message(request, constants.ERROR, 'Nome ou senha inválidos')
             return redirect('/auth/logar')
         else:
             auth.login(request, usuario)

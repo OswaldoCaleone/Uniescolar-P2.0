@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block 'head' %}
-    <link rel="stylesheet" href="{% static 'autenticacao/css/cadastro.css' %}">
+    <link rel="stylesheet" href="{% static 'autenticacao/css/conta.css' %}">
 {% endblock %}
 
 {% block 'body' %}
@@ -19,14 +19,14 @@
         <h1 class="titulo font-degrade borda-bottom-degrade">LOGAR</h1>
          <br>
         <span class="span-descricao">Nome de usuário:</span>
-        <input type="text" class="form-control input-cadastro" name="username">
+        <input type="text" class="form-control input-conta" name="username">
         <br>
         <span class="span-descricao">Senha:</span>
-        <input type="password" class="form-control input-cadastro" name="password">
+        <input type="password" class="form-control input-conta" name="password">
          <a href="{% url 'password_reset' %}">Esqueci minha senha</a>
         <br>
         <input type="submit" value="LOGAR" class="btn btn-success btn-lg">
-        <a href="{% url 'cadastro' %}" class="btn btn-primary btn-lg">CADASTRO</a>
+        <a href="{% url 'conta' %}" class="btn btn-primary btn-lg">CADASTRAR</a>
     </form>
 </div>    
 {% endblock %}

@@ -7,7 +7,7 @@
 
   @font-face {
     font-family: Code;
-    src: url(./../font/CODE\ Bold.otf);
+    src: url(../font/CODE_Bold.otf);
   }
 
   html, body {
@@ -51,7 +51,7 @@
 
 }
 
-.input-cadastro{
+.input-conta{
     
     margin-top: 15px;
 

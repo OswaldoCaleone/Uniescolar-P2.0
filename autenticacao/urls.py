@@ -3,7 +3,7 @@ from django.contrib.auth import views as auth_views
 from .import views
 
 urlpatterns = [
-    path('cadastro/', views.cadastro, name="cadastro"),
+    path('conta/', views.conta, name="conta"),
     path('logar/', views.logar, name="logar"),
     path('sair/', views.sair, name="sair"),
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name="password_reset.html"), name="password_reset"),
