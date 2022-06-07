@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'cadastro/css/cadastro_usuario.css' %}">
+    <link rel="stylesheet" href="{% static 'cadastro/css/usuarios.css' %}">
+{% endblock %}
+
+{% block 'body' %}
+<br>
+<br>  
+<!--centraliza-->
+<div class="mx-auto" style="width: 500px;">
+    <!--cria card-->
+    <div class="card border-primary mb-3" style="max-width: 30rem;">
+        <div class="card-body text-primary">
+            <!--solicita token de autenticação-->
+        <form action="{% url 'autenticar' %}" method="POST">{% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {{message.tags}}">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        <div style="width: 100%">
+            <form action="{% url 'aluno' %}" method="POST">{% csrf_token %}
+                <h1 class="titulo font-degrade borda-bottom-degrade"> Cadastro Transportador</h1>
+                <br>
+                <p>Nome:</p>
+                <input type="text" class="form-control" value="{{nome_transp}}" name="nome_transp">
+                <br>
+                <p>CPF:
+                <input type="text" class="form-control" value="{{cpf_transp}}" name="cpf_transp">
+                <br>
+                <p>Endereço:</p>
+                <input type="text" class="form-control" value="{{end_transp}}" name="end_transp">
+                <br>
+                <p>Telefone:</p>
+                <input type="text" class="form-control" value="{{tel_transp}}" name="tel_transp">
+                <br>
+                <p>Veículo:</p>
+                <input type="text" class="form-control" value="{{veiculo}}" name="veiculo">
+                <br>
+                <p>Placa:</p>
+                <input type="text" class="form-control" value="{{placa}}" name="placa">
+                <br>
+                <p>Capacidade:</p>
+                <input type="text" class="form-control" value="{{capacidade}}" name="capacidade">
+                <br>
+                <p>Tempo que atua no ramo:</p>
+                <input type="text" class="form-control" value="{{tempo_atua}}" name="tempo_atua">
+                <br>
+                <p>Escolas que atende:</p>
+                <input type="text" class="form-control" value="{{escola_atende}}" name="escola_atende">
+                <br>
+                <input type="submit" class="btn btn-success btn-lg" value="Salvar">
+            </form>
+    </div>
+{% endblock %}

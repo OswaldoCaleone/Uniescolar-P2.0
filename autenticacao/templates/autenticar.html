@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'autenticacao/css/autenticar.css' %}">
+
+{% endblock %}
+
+{% block 'body' %}
+
+<!--centraliza-->
+<div class="mx-auto" style="width: 500px;">
+    <!--cria card-->
+    <div class="card border-primary mb-3" style="max-width: 30rem;">
+        <div class="card-body text-primary">
+            <!--solicita token de autenticação-->
+        <form action="{% url 'autenticar' %}" method="POST">{% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {{message.tags}}">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+                <h1 class="titulo font-degrade borda-bottom-degrade">Autenticação</h1>
+                <br>
+                <span class="span-descricao">USERNAME:</span>
+                <input type="text" class="form-control input-autenticar" name="username">
+                <br>
+                <span class="span-descricao">Email:</span>
+                <input type="text" class="form-control input-autenticar" name="email">
+                <br>
+                <span class="span-descricao">Senha:</span>
+                <input type="password" class="form-control input-autenticar" name="password">
+                <br>
+                <span class="span-descricao">Confirmar senha:</span>
+                <input type="password" class="form-control input-autenticar" name="confirm-password">
+                <br>
+                <input type="submit" value="Enviar" class="btn btn-success btn-lg">
+                <a href="{% url 'logar' %}" class="btn btn-primary btn-lg">Fazer login</a>
+        </form>
+    
+    </div>
+</div>
+{% endblock %}

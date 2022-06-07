@@ -2,19 +2,25 @@
 {% load static %}
 
 {% block 'head' %}
-    <link rel="stylesheet" href="{% static 'autenticacao/css/conta.css' %}">
+    <link rel="stylesheet" href="/templates/static/autenticacao/css/base.css">
+    <link rel="stylesheet" href="/templates/static/autenticacao/css/autenticar.css">
 {% endblock %}
 
 {% block 'body' %}
-<div class="box">
-    <form action="{% url 'logar' %}" method="post">{% csrf_token %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert {{message.tags}}">
-                    {{message}}
-                </div>
-            {% endfor %}
-        {% endif %}
+<!--centraliza-->
+<div class="mx-auto" style="width: 500px;">
+    <!--cria card-->
+    <div class="card border-primary mb-3" style="max-width: 30rem;">
+        <div class="card-body text-primary">
+            <!--solicita token de autenticação-->
+        <form action="{% url 'autenticar' %}" method="POST">{% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {{message.tags}}">
+                        {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
         <h1 class="titulo font-degrade borda-bottom-degrade">LOGAR</h1>
          <br>
@@ -26,7 +32,7 @@
          <a href="{% url 'password_reset' %}">Esqueci minha senha</a>
         <br>
         <input type="submit" value="LOGAR" class="btn btn-success btn-lg">
-        <a href="{% url 'conta' %}" class="btn btn-primary btn-lg">CADASTRAR</a>
+        <a href="/cadastro/templates/index.html">
     </form>
 </div>    
 {% endblock %}
