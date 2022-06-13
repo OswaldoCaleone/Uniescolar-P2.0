@@ -7,5 +7,6 @@ urlpatterns = [
     path('responsavel/', views.responsavel, name="responsavel"),
     path('transportador/', views.transportador, name="transportador"),
     path('cad_usuario/', views.cad_usuario, name="cad_usuario"),
+    path('index/', views.index, name="index"),
 
 ]

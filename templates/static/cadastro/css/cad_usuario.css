@@ -1,13 +1,13 @@
 * {
-    margin: 0;
-    padding: 1;
-    font-family: Code, sans-serif;
-    letter-spacing: 0.1rem;
-  }
+  margin: 0;
+  padding: 1;
+  font-family: Code, sans-serif;
+  letter-spacing: 0.1rem;
+}
 
   @font-face {
     font-family: Code;
-    src: url(/templates/font/CODE_Bold.otf);
+    src: url('/templates/static/cadastro/font/CODE_Bold.otf');
   }
 
   html, body {
@@ -17,7 +17,7 @@
   }
 
   .bg{
-    background-image: url(/templates/img/textura.jpg);
+    background-image: url('/templates/img/textura.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

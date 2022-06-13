@@ -2,44 +2,47 @@
 {% load static %}
 
 {% block 'head' %}
-    <link rel="stylesheet" href="{% static 'cadastro/css/cadastro_usuario.css' %}">
     <link rel="stylesheet" href="{% static 'cadastro/css/usuarios.css' %}">
 {% endblock %}
 
 {% block 'body' %}
  <br>
- <br>   
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
  <!--centraliza-->
 <div class="mx-auto" style="width: 500px;">
     <!--cria card-->
     <div class="card border-primary mb-3" style="max-width: 30rem;">
         <div class="card-body text-primary">
             <!--solicita token de autenticação-->
-        <form action="{% url 'autenticar' %}" method="POST">{% csrf_token %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert {{message.tags}}">
-                        {{message}}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        <div style="width: 100%">
             <form action="{% url 'aluno' %}" method="POST">{% csrf_token %}
-                <h1 class="titulo font-degrade borda-bottom-degrade">Cadastro aluno</h1>
-                <br>
-                <p>Nome do aluno(a):</p>
-                <input type="text" class="form-control" value="{{nome_aluno}}" name="nome_aluno">
-                <br>
-                <p>CPF aluno(a):
-                <input type="text" class="form-control" value="{{cpf_aluno}}" name="cpf_aluno">
-                <br>
-                <p>Nome da escola:</p>
-                <input type="text" class="form-control" value="{{escola_aluno}}" name="escola_aluno">
-                <br>
-                <p>Endereço da escola:</p>
-                <input type="text" class="form-control" value="{{end_escola_aluno}}" name="end_escola_aluno">
-                <br>
-                <input type="submit" class="btn btn-success btn-lg" value="Salvar">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {{message.tags}}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                    <h1 class="titulo font-degrade borda-bottom-degrade">Cadastro aluno</h1>
+                    <br>
+                    <p>Nome do aluno(a):</p>
+                    <input type="text" class="form-control" value="{{nome_aluno}}" name="nome_aluno">
+                    <br>
+                    <p>CPF aluno(a):
+                    <input type="text" class="form-control" value="{{cpf_aluno}}" name="cpf_aluno">
+                    <br>
+                    <p>Nome da escola:</p>
+                    <input type="text" class="form-control" value="{{escola}}" name="escola">
+                    <br>
+                    <p>Endereço da escola:</p>
+                    <input type="text" class="form-control" value="{{end_escola}}" name="end_escola">
+                    <br>
+                    <input type="submit" class="btn btn-success btn-lg" value="Salvar">
             </form>
+        </div>
     </div>
+</div>
 {% endblock %}

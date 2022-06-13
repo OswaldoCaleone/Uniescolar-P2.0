@@ -2,8 +2,7 @@
 {% load static %}
 
 {% block 'head' %}
-    <link rel="stylesheet" href="{% static 'cadastro/css/cadastro_usuario.css' %}">
-    <link rel="stylesheet" href="{% static 'cadastro/css/usuarios.css' %}">
+<link rel="stylesheet" href="{% static 'cadastro/css/usuarios.css' %}">
 {% endblock %}
 
 {% block 'body' %}
@@ -15,34 +14,36 @@
     <div class="card border-primary mb-3" style="max-width: 30rem;">
         <div class="card-body text-primary">
             <!--solicita token de autenticação-->
-        <form action="{% url 'autenticar' %}" method="POST">{% csrf_token %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert {{message.tags}}">
-                        {{message}}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        <div style="width: 100%">
-            <form action="{% url 'aluno' %}" method="POST">{% csrf_token %}
-                <h1 class="titulo font-degrade borda-bottom-degrade">Cadastro escola</h1>
-                <br>
-                <p>Nome da escola:</p>
-                <input type="text" class="form-control" value="{{nome_escola}}" name="nome_escola">
-                <br>
-                <p>CNPJ escola:
-                <input type="text" class="form-control" value="{{cnpj_escola}}" name="cnpj_escola">
-                <br>
-                <p>Endereço:</p>
-                <input type="text" class="form-control" value="{{end_escola}}" name="end_escola">
-                <br>
-                <p>Telefone:</p>
-                <input type="text" class="form-control" value="{{tel_escola}}" name="tel_escola">
-                <br>
-                <p>Responsável:</p>
-                <input type="text" class="form-control" value="{{resp_escola}}" name="resp_escola">
-                <br>
-                <input type="submit" class="btn btn-success btn-lg" value="Salvar">
+            <form action="{% url 'escola' %}" method="POST">{% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {{message.tags}}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div style="width: 100%">
+                    <h1 class="titulo font-degrade borda-bottom-degrade">Cadastro escola</h1>
+                    <br>
+                    <p>Nome da escola:</p>
+                    <input type="text" class="form-control" value="{{nome_escola}}" name="nome_escola">
+                    <br>
+                    <p>CNPJ escola:
+                    <input type="text" class="form-control" value="{{cnpj_escola}}" name="cnpj_escola">
+                    <br>
+                    <p>Endereço:</p>
+                    <input type="text" class="form-control" value="{{end_escola}}" name="end_escola">
+                    <br>
+                    <p>Telefone:</p>
+                    <input type="text" class="form-control" value="{{tel_escola}}" name="tel_escola">
+                    <br>
+                    <p>Responsável:</p>
+                    <input type="text" class="form-control" value="{{resp_escola}}" name="resp_escola">
+                    <br>
+                    <input type="submit" class="btn btn-success btn-lg" value="Salvar">   
+                </div>
             </form>
+        </div>
     </div>
+</div>
 {% endblock %}

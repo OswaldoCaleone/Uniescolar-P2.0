@@ -18,7 +18,7 @@ def autenticar(request):
             messages.add_message(request, constants.ERROR, 'As senhas não coincidem')
             return redirect('/auth/autenticar')
 
-        if len(username.strip()) == 0 or len(senha.strip()) == 0 or len(email.strip()) == 0 :
+        if len(username.strip()) == 0 or len(email.strip()) == 0 or len(senha.strip()) == 0 :
             messages.add_message(request, constants.ERROR, 'Preencha todos os campos')
             return redirect('/auth/autenticar')
 

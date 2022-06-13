@@ -16,7 +16,7 @@
     <div class="card border-primary mb-3" style="max-width: 30rem;">
         <div class="card-body text-primary">
             <!--solicita token de autenticação-->
-        <form action="{% url 'autenticar' %}" method="POST">{% csrf_token %}
+        <form action="{% url 'cad_usuario' %}" method="POST">{% csrf_token %}
             {% if messages %}
                 {% for message in messages %}
                     <div class="alert {{message.tags}}">
@@ -24,22 +24,24 @@
                     </div>
                 {% endfor %}
             {% endif %}
-    <div style="width: 60%">
-            <form action="{% url 'cad_usuario' %}" method="POST">{% csrf_token %}
-                <p>Username:</p>
-                <input type="text" class="form-control" value="{{user.username}}" name="username">
-                <br>
-                <p>Email:</p>
-                <input type="email" class="form-control" value="{{user.email}}" name="email">
-                <br>
-                <p>Primeiro nome:</p>
-                <input type="text" class="form-control" value="{{user.first_name}}" name="primeiro_nome">
-                <br>
-                <p>Último nome:</p>
-                <input type="text" class="form-control" value="{{user.last_name}}" name="ultimo_nome">
-                <br>
-                <input type="submit" class="btn btn-success btn-lg" value="Salvar alterações">
-            </form>
+            <div style="width: 60%">
+                    
+                        <p>Username:</p>
+                        <input type="text" class="form-control" value="{{user.username}}" name="username">
+                        <br>
+                        <p>Email:</p>
+                        <input type="email" class="form-control" value="{{user.email}}" name="email">
+                        <br>
+                        <p>Primeiro nome:</p>
+                        <input type="text" class="form-control" value="{{user.first_name}}" name="primeiro_nome">
+                        <br>
+                        <p>Último nome:</p>
+                        <input type="text" class="form-control" value="{{user.last_name}}" name="ultimo_nome">
+                        <br>
+                        <input type="submit" class="btn btn-success btn-lg" value="Salvar alterações">
+                   
+            </div>
+        </form>
         </div>
         <br>
         <hr class="borda-degrade">
@@ -69,5 +71,5 @@
         </table>
 
     </div>
-
+</div>
 {% endblock %}

@@ -1,93 +1,82 @@
 <!doctype html>
-<html lang="pt-br">
-	<head>
+<html lang="pt-BR">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Required meta tags -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
-            <meta name='viewport' content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="static/autenticacao/css/base.css">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% block 'head' %}
 
-            <!--Bootstrap-->
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    {% endblock %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <title>{% block 'title' %}{% endblock %}</title>
+    </head>
 
-            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <title>{%block title%}{%endblock%}</title>
-	</head>
+    <body class="fundo">
+   
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-	<body class="bg">
-        
-        <header id ="header" class ="mb-3">
-            <nav class ="navbar navbar-light navbar-expand-sm bg-warning">
-                <!--Logotipo-->
-                <a href =" / " class ="navbar-brand" style ="font-size: 2em;">Uniescolar</a>
+        {% if user.is_authenticated %}
+            <header id="header" class="mb-3">
+                <nav class="navbar navbar-light navbar-expand-sm bg-warning">
+                    <!--Logo-->
+                    <a href="/" class="navbar-brand" style="font-size: 2em;">Uniescolar</a>
+                    <!--Navegação-->
+                    <div class="collapse navbar-collapse" id="navegacao">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastrar</a>
+                                <div class="dropdown-menu">                                        <a class="dropdown-item" href="/cadastro/templates/aluno.html">Aluno</a>
+                                    <a class="dropdown-item" href="/cadastro/templates/escola.html">Escola</a>
+                                    <a class="dropdown-item" href="/cadastro/templates/responsavel.html">Responsável</a>
+                                    <a class="dropdown-item" href="/cadastro/templates/transportador.html">Transportador</a>
+                                </div>
+                            </li>                  
+                            <li class="nav-item">
+                                <a class="nav-link {%if active == 'formulario'%}active{%endif%}" href="/formulario">Formulário</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {%if active == 'escola'%}active{%endif%}" href="escola">Escola</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/localizacao" class="nav-link {%if active == 'localizacao'%}active{%endif%}">Localizacão</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/consultar" class="nav-link {%if active == 'consultar'%}active{%endif%}">Consultar</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'sair' %}">Sair</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+        {% endif %}
+      
+    {% block 'body' %}{% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 
-                <!--Botão-->
-                <button class ="navbar-toggler" data-toggle ="recolher" data-target ="#navegacao"><span class ="navbar-toggler-icon"></span>
-				</button>
+    <script>
+        (function(d)
+        {var s = d.createElement("script");
 
-                <!--Navegação-->
-                <div class ="recolher navbar-collapse" id ="navegacao">
-                    <ul class ="navbar-nav ml-auto">
-                        <!--botão de lista-->
-                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/cadastro/templates/" id="Cadastro" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Cadastro
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="/cadastro/templates/aluno.html">Aluno</a>
-                              <a class="dropdown-item" href="/cadastro/templates/escola.html">Escola</a>
-                              <a class="dropdown-item" href="/cadastro/templates/responsavel.html">Responsável</a>
-                              <a class="dropdown-item" href="/cadastro/templates/transportador.html">Transportador</a>
-                            </div>
-                        </li>
-                        <li class =" nav-item ">
-                            <a class ="nav-link{%if active == 'formulario'%}active{%endif%}" href ="/formulario">Formulário</a>
-                        </li>
-                        <li class ="nav-item">
-                            <a class ="nav-link{%if active == 'escola'%}active{%endif%}" href ="escola">Escola</a>
-                        </li>
-                        <li class ="nav-item">
-                            <a href ="/localizacao" class ="nav-link{%if active == 'localizacao'%}active{%endif%}">Localizacão</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../admin/logout/">Sair</a>
-                         </li>
-                        
-                    </ul>
-                </div>
-            </nav>
+        /* Attributes customs */
+        s.setAttribute("data-size", "large");
+        s.setAttribute("data-color", "#5e3a4e"); 
+        s.setAttribute("data-mobile", true);
+        s.setAttribute("data-position", 3);
 
-		</header>
-		{% block 'body' %}{% endblock %}
-
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" ></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
-        <script>
-            (function(d)
-            {var s = d.createElement("script");
-
-            /* Attributes customs */
-            s.setAttribute("data-size", "large");
-            s.setAttribute("data-color", "#5e3a4e"); 
-            s.setAttribute("data-mobile", true);
-            s.setAttribute("data-position", 3);
-
-            /* Attributes Needed */
-            s.setAttribute("data-account", "rlAuTf3ji5");
-            s.setAttribute("src","https://cdn.userway.org/widget.js");
-            (d.body || d.head).appendChild(s);})(document)
-        </script>
-        <noscript>
-        Please ensure Javascript is enabled for purposes of 
-        <a href="https://userway.org">website accessibility</a>
-        </noscript>
-        
-	</body>
+        /* Attributes Needed */
+        s.setAttribute("data-account", "rlAuTf3ji5");
+        s.setAttribute("src","https://cdn.userway.org/widget.js");
+        (d.body || d.head).appendChild(s);})(document)
+    </script>
+    <noscript>
+    Please ensure Javascript is enabled for purposes of 
+    <a href="https://userway.org">website accessibility</a>
+    </noscript>
+    
 </html>

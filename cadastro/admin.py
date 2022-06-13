@@ -1,5 +1,7 @@
 from django.contrib import admin
-from django.db import models
-
+from .models import escola, transportador, rota
 
 # Register your models here.
+admin.site.register(escola),
+admin.site.register(transportador),
+admin.site.register(rota)

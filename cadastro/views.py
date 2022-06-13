@@ -15,8 +15,8 @@ def aluno(request):
     elif request.method == "POST": 
         nome_aluno = request.POST.get('nome_aluno')
         cpf_aluno = request.POST.get('cpf_aluno')
-        escola_aluno = request.POST.get('escola_aluno')
-        end_escola_aluno = request.POST.get('end_escola_aluno')
+        escola = request.POST.get('escola')
+        end_escola = request.POST.get('end_escola')
        
         #if len(nome_aluno.strip()) == 0 or len(cpf_aluno.strip()) == 0 or len (escola_aluno()) == 0 or len(end_escola_aluno) == 0:
          #   messages.add_message(request, constants.ERROR, 'Preencha todos os campos')
@@ -29,7 +29,7 @@ def aluno(request):
         #    return redirect('/cadastro/aluno')
         
         try:
-            user = User.objects.create_user(nome_aluno=nome_aluno, cpf_aluno=cpf_aluno, escola_aluno=escola_aluno, end_escola_aluno=end_escola_aluno)
+            user = User.objects.create_user(nome_aluno=nome_aluno, cpf_aluno=cpf_aluno, escola=escola, end_escola=end_escola)
             user.save()
             messages.add_message(request, constants.SUCCESS, 'Aluno adicionado com sucesso!')
 
@@ -124,9 +124,9 @@ def transportador(request):
         placa = request.POST.get('placa')
         capacidade = request.POST.get('capacidade')
         tempo_atua = request.POST.get('tempo_atua')
-        escola_atende = request.POST.get('escola_atende')
+        escola = request.POST.get('escola')
        
-        if len(nome_transp.strip()) == 0 or len(cpf_transp.strip()) == 0 or len(email_transp.strip()) == 0 or len(end_transp.strip()) == 0 or len(tel_transp.strip()) == 0 or len(veiculo.strip()) == 0 or len(placa.strip()) == 0 or len(capacidade.strip()) == 0 or len(tempo_atua.strip()) == 0 or len(escola_atende.strip()) == 0:
+        if len(nome_transp.strip()) == 0 or len(cpf_transp.strip()) == 0 or len(email_transp.strip()) == 0 or len(end_transp.strip()) == 0 or len(tel_transp.strip()) == 0 or len(veiculo.strip()) == 0 or len(placa.strip()) == 0 or len(capacidade.strip()) == 0 or len(tempo_atua.strip()) == 0 or len(escola.strip()) == 0:
             messages.add_message(request, constants.ERROR, 'Preencha todos os campos')
             return redirect('/cadastro/transportador')
 
@@ -137,7 +137,7 @@ def transportador(request):
             return redirect('/cadastro/transportador')
         
         try:
-            user = User.objects.create_user(nome_transp=nome_transp, cpf_transp=cpf_transp, email_transp=email_transp, end_transp=end_transp, tel_transp=tel_transp, veiculo=veiculo, placa=placa, capacidade=capacidade, tempo_atua=tempo_atua, escola_atende=escola_atende)
+            user = User.objects.create_user(nome_transp=nome_transp, cpf_transp=cpf_transp, email_transp=email_transp, end_transp=end_transp, tel_transp=tel_transp, veiculo=veiculo, placa=placa, capacidade=capacidade, tempo_atua=tempo_atua, escola=escola)
             user.save()
             messages.add_message(request, constants.SUCCESS, 'Transportador adicionado com sucesso!')
 
@@ -172,3 +172,16 @@ def cad_usuario(request):
     
         messages.add_message(request, constants.SUCCESS, 'Dados alterado com sucesso')
         return redirect('/cadastro/cad_usuario')           
+
+def rota(request):
+    if request.method == "GET":
+        return render(request, 'rotas.html')
+    elif request.method == "POST": 
+        nome_transp = request.POST.get('nome_transp')
+        veiculo = request.POST.get('veiculo')
+        escola_atende = request.POST.get('escola_atende')
+        end_escola = request.POST.get('end_escola')
+
+def index(request):
+    if request.method == "GET":
+        return render(request, 'index.httml')

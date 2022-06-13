@@ -2,44 +2,47 @@
 {% load static %}
 
 {% block 'head' %}
-    <link rel="stylesheet" href="{% static 'cadastro/css/cadastro_usuario.css' %}">
-    <link rel="stylesheet" href="{% static 'cadastro/css/usuarios.css' %}">
+<link rel="stylesheet" href="{% static 'cadastro/css/usuarios.css' %}">
+
 {% endblock %}
 
 {% block 'body' %}
 <br>
 <br>  
 <!--centraliza-->
-<div class="mx-auto" style="width: 500px;">
-    <!--cria card-->
-    <div class="card border-primary mb-3" style="max-width: 30rem;">
-        <div class="card-body text-primary">
-            <!--solicita token de autenticação-->
-        <form action="{% url 'autenticar' %}" method="POST">{% csrf_token %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert {{message.tags}}">
-                        {{message}}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        <div style="width: 100%">
-            <form action="{% url 'aluno' %}" method="POST">{% csrf_token %}
-                <h1 class="titulo font-degrade borda-bottom-degrade">Cadastro Responsável</h1>
-                <br>
-                <p>Nome da Responsável:</p>
-                <input type="text" class="form-control" value="{{nome_resp}}" name="nome_resp">
-                <br>
-                <p>CPF Responsável(a):
-                <input type="text" class="form-control" value="{{cpf_resp}}" name="cpf_resp">
-                <br>
-                <p>Endereço do Responsável:</p>
-                <input type="text" class="form-control" value="{{end_resp}}" name="end_resp">
-                <br>
-                <p>Telefone:</p>
-                <input type="text" class="form-control" value="{{tel_resp}}" name="tel_resp">
-                <br>
-                <input type="submit" class="btn btn-success btn-lg" value="Salvar">
+    <div class="mx-auto" style="width: 500px;">
+        <!--cria card-->
+        <div class="card border-primary mb-3" style="max-width: 30rem;">
+            <div class="card-body text-primary">
+                <!--solicita token de autenticação-->
+            <form action="{% url 'responsavel' %}" method="POST">{% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {{message.tags}}">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div style="width: 100%">
+
+                        <h1 class="titulo font-degrade borda-bottom-degrade">Cadastro Responsável</h1>
+                        <br>
+                        <p>Nome da Responsável:</p>
+                        <input type="text" class="form-control" value="{{nome_resp}}" name="nome_resp">
+                        <br>
+                        <p>CPF Responsável(a):
+                        <input type="text" class="form-control" value="{{cpf_resp}}" name="cpf_resp">
+                        <br>
+                        <p>Endereço do Responsável:</p>
+                        <input type="text" class="form-control" value="{{end_resp}}" name="end_resp">
+                        <br>
+                        <p>Telefone:</p>
+                        <input type="text" class="form-control" value="{{tel_resp}}" name="tel_resp">
+                        <br>
+                        <input type="submit" class="btn btn-success btn-lg" value="Salvar">
+             
+                </div>
             </form>
+        </div>
     </div>
 {% endblock %}
